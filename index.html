@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller de Desarrollo Web | Formulario de Inscripción</title>
+
+</head>
+<body>
+
+    <!-- ENCABEZADO -->
+    <h1>📘 Taller de Desarrollo Web</h1>
+    <p>Formulario de inscripción para estudiantes interesados en el taller de desarrollo web.<br>
+    Completa todos los campos requeridos (<strong style="color: rgb(228, 6, 6);">*</strong>) con la información solicitada.</p>
+
+
+    <form action="#" method="post" enctype="multipart/form-data">
+        
+        <!-- SECCION DE DATOS PERSONALES-->>
+        <fieldset>
+            <legend style="color: rgb(48, 6, 124);">👤 DATOS PERSONALES--</legend>
+
+            <!-- Nombres y apellidos (texto, requerido, longitud controlada) -->
+            <div>
+                <label for="fullname">Nombres y apellidos <strong style="color: rgb(228, 6, 6);">*</strong>:</label>
+                <input type="text" id="fullname" name="fullname" required 
+                       minlength="3" maxlength="80" placeholder="Ej: Ana María Gutiérrez">
+            </div>
+
+            <!-- Correo electrónico (email, requerido) -->
+            <div>
+                <label for="email">Correo electrónico <strong style="color: rgb(228, 6, 6);">*</strong>:</label>
+                <input type="email" id="email" name="email" required 
+                       placeholder="estudiante@universidad.edu">
+            </div>
+
+            <!-- Teléfono con patrón de validación (10 dígitos, opcional pero se valida si se ingresa) -->
+            <div>
+                <label for="telefono">Teléfono / celular:</label>
+                <input type="tel" id="telefono" name="telefono" 
+                       pattern="[0-9]{10}" placeholder="0991234567" 
+                       title="Debe contener exactamente 10 dígitos numéricos">
+            </div>
+
+            <!-- Edad (número, requerido, rango 15-80, step=1) -->
+            <div>
+                <label for="edad">Edad <strong style="color: rgb(228, 6, 6);">*</strong>:</label>
+                <input type="number" id="edad" name="edad" required 
+                       min="15" max="80" step="1" value="18" 
+                       placeholder="Ej: 22">
+            </div>
+
+            <!-- Fecha de nacimiento (date) -->
+            <div>
+                <label for="nacimiento">Fecha de nacimiento:</label>
+                <input type="date" id="nacimiento" name="nacimiento">
+                <span class="nota">(opcional)</span>
+            </div>
+        </fieldset>
+        <!-- SECCION DE DATOS ACADEMICOS -->
+        <fieldset>
+            <legend style="color: rgb(48, 6, 124);">📚 DATOS ACADÉMICOS</legend>
+
+            <!-- Carrera o curso (texto, requerido) -->
+            <div>
+                <label for="carrera">Carrera o curso <strong style="color: rgb(228, 6, 6);">*</strong>:</label>
+                <input type="text" id="carrera" name="carrera" required 
+                       maxlength="100" placeholder="Ej: Ingeniería de Sistemas / Desarrollo de Software">
+            </div>
+
+            <!-- Nivel académico: select / option con required -->
+            <div>
+                <label for="nivel">Nivel académico <strong style="color: rgb(228, 6, 6);">*</strong>:</label>
+                <select id="nivel" name="nivel_academico" required>
+                    <option value="" disabled selected>-- Seleccione una opción --</option>
+                    <option value="bachillerato">Bachillerato / Secundaria</option>
+                    <option value="tecnologico">Tecnológico / Técnico</option>
+                    <option value="universitario">Universitario (Pregrado)</option>
+                    <option value="posgrado">Posgrado / Especialización</option>
+                </select>
+            </div>
+
+            <!-- Institución educativa (texto, opcional) -->
+            <div>
+                <label for="institucion">Institución educativa:</label>
+                <input type="text" id="institucion" name="institucion" 
+                       placeholder="Nombre de la universidad, colegio o centro" maxlength="120">
+            </div>
+        </fieldset>
+
+        <!-- SECCION DE PREFERENCIAS DEL TALLER -->
+        <fieldset>
+            <legend style="color: rgb(48, 6, 124);">⚙️ PREFERENCIAS</legend>
+
+            <!-- Modalidad: radios (requerido, grupo name="modalidad") -->
+            <div class="grupo-radio">
+                <span class="subtitulo">Modalidad de participación <strong style="color: rgb(228, 6, 6);">*</strong>:</span>
+                <label><input type="radio" name="modalidad" value="presencial" required> Presencial</label>
+                <label><input type="radio" name="modalidad" value="virtual"> Virtual (en línea)</label>
+                <label><input type="radio" name="modalidad" value="hibrida"> Híbrida (mixta)</label>
+            </div>
+
+            <!-- Temas de interés: checkboxes (múltiple) -->
+            <div class="grupo-checkbox">
+                <span class="subtitulo">Temas de interés (puede seleccionar varios):</span>
+                <label><input type="checkbox" name="temas" value="html"> HTML5</label>
+                <label><input type="checkbox" name="temas" value="css"> CSS3 / Flexbox / Grid</label>
+                <label><input type="checkbox" name="temas" value="javascript"> JavaScript / ES6</label>
+                <label><input type="checkbox" name="temas" value="responsive"> Diseño responsivo</label>
+                <label><input type="checkbox" name="temas" value="git"> Control de versiones (Git/GitHub)</label>
+            </div>
+
+            <!-- Nivel de conocimiento previo (radio, requerido) -->
+            <div class="grupo-radio">
+                <span class="subtitulo">Nivel de conocimiento previo en desarrollo web <strong style="color: rgb(228, 6, 6);">*</strong>:</span>
+                <label><input type="radio" name="conocimiento" value="basico" required> Básico (poca o ninguna experiencia)</label>
+                <label><input type="radio" name="conocimiento" value="intermedio"> Intermedio (conozco HTML/CSS básico)</label>
+                <label><input type="radio" name="conocimiento" value="avanzado"> Avanzado (tengo proyectos previos)</label>
+            </div>
+
+            <!-- Color favorito (color picker) para personalizar ambiente -->
+            <div>
+                <label for="color_taller">Color favorito (para ambientación virtual):</label>
+                <input type="color" id="color_taller" name="color_favorito" value="#1e88e5">
+            </div>
+
+            <!-- Nivel de motivación: range (1 a 10, step=1) -->
+            <div>
+                <label for="motivacion">Nivel de motivación (1 = poco motivado, 10 = muy motivado):</label>
+                <input type="range" id="motivacion" name="motivacion" min="1" max="10" step="1" value="7">
+                <output id="rango_valor" for="motivacion">7</output>
+            <!-- Corregimos: eliminamos script y output para no violar restricciones. Pero dejamos el range puro -->
+            <div>
+                <label for="motivacion_range">Nivel de motivación (1–10):</label>
+                <input type="range" id="motivacion_range" name="motivacion_nivel" min="1" max="10" step="1" value="6">
+                <span class="nota">  (deslice para indicar su motivación)</span>
+            </div>
+
+        </fieldset>
+        <!-- SECCION DE DISPONIBILIDAD HORARIA-->
+        <fieldset>
+            <legend style="color: rgb(48, 6, 124);">📅 DISPONIBILIDAD</legend>
+
+            <!-- Fecha preferida para iniciar (date) -->
+            <div>
+                <label for="fecha_inicio">Fecha preferida para iniciar el taller:</label>
+                <input type="date" id="fecha_inicio" name="fecha_inicio_taller">
+            </div>
+
+            <!-- Hora disponible (time) -->
+            <div>
+                <label for="hora_disp">Hora preferida (disponibilidad):</label>
+                <input type="time" id="hora_disp" name="hora_disponible">
+            </div>
+
+            <!-- Jornada preferida: select / option -->
+            <div>
+                <label for="jornada">Jornada preferida:</label>
+                <select id="jornada" name="jornada_preferida">
+                    <option value="manana">Mañana (6:00 - 12:00)</option>
+                    <option value="tarde">Tarde (12:00 - 18:00)</option>
+                    <option value="noche">Noche (18:00 - 22:00)</option>
+                </select>
+            </div>
+        </fieldset>
+
+        <!-- SECCION DE INFORMACION ADICIONAL-->
+        <fieldset>
+            <legend style="color: rgb(48, 6, 124);">📎 INFORMACION ADICIONAL </legend>
+
+            <!-- Subir archivo de ejemplo (file) -->
+            <div>
+                <label for="archivo_ejemplo">Subir archivo de ejemplo (captura, certificado, portafolio):</label>
+                <input type="file" id="archivo_ejemplo" name="archivo_muestra" accept=".pdf,.jpg,.png,.docx">
+            </div>
+
+            <!-- Enlace a portafolio o perfil académico (URL) -->
+            <div>
+                <label for="portafolio_url">Portafolio web / perfil académico / LinkedIn:</label>
+                <input type="url" id="portafolio_url" name="url_portafolio" 
+                       placeholder="https://ejemplo.com" 
+                       pattern="https?://.+">
+            </div>
+
+            <!-- Comentarios adicionales (textarea) -->
+            <div>
+                <label for="comentarios">Comentarios o expectativas del taller:</label>
+                <textarea id="comentarios" name="comentarios_extra" rows="4" cols="50" 
+                          maxlength="500" placeholder="Cuéntanos por qué deseas participar, dudas o sugerencias..."></textarea>
+            </div>
+
+        </fieldset>
+
+        <!-- Botones de acción -->
+        <div class="acciones-botones">
+            <button type="submit">✅ Enviar inscripción</button>
+            <button type="reset">🗑️ Limpiar formulario</button>
+        </div>
+
+        <p class="nota-legal">Los campos marcados con <strong style="color: rgb(228, 6, 6);">*</strong> son obligatorios. 
+        La información será utilizada únicamente para la organización del taller de desarrollo web.</p>
+    </form>
+</body>
+</html>
