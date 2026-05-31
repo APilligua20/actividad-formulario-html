@@ -26,8 +26,7 @@ Demostrar el uso de diversos elementos de formulario HTML, atributos de validaci
 - **Rango de motivación**: valor numérico de 1 a 10.
 
 ## 🧪 Prueba el formulario
-Puedes probar el envío (no hay backend activo, el formulario usa `action="#"`).
-Los botones “Enviar inscripción” y “Limpiar formulario” funcionan según el comportamiento nativo del navegador.
+Puedes probar el envío. Los botones “Enviar inscripción” y “Limpiar formulario” funcionan según el comportamiento nativo del navegador.
 
 ## Autor
 Andy Pilligua
